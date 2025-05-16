@@ -1,12 +1,21 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::prefix('/')
+    ->name('guest.')
+    ->group(function () {
+        Route::get('/', function () {
+            return view('guest.welcome');
+        })->name('home');
+
+        Route::get('/contacts', function () {
+            return view('guest.contacts');
+        })->name('contacts');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,6 +38,8 @@ Route::middleware(['auth', 'verified'])
 
     Route::get("/profile", [DashboardController::class, 'profile'])
     ->name("profile");
+
+     Route::resource('projects', ProjectController::class);
 });
 
 
