@@ -3,7 +3,7 @@
 @section('content')
 <div class="container py-4">
     <h1 class="mb-4">Elenco Progetti</h1>
-
+    
     <table class="table table-striped table-hover">
         <thead class="table-dark">
             <tr>
@@ -20,7 +20,7 @@
                 <td>{{ $project->client ?? '-' }}</td>
                 <td>{{ $project->period ?? '-' }}</td>
                 <td>
-                    <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-danger">
+                    <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-secondary">
                         Visualizza Dettagli
                     </a>
                 </td>
@@ -28,5 +28,6 @@
             @endforeach
         </tbody>
     </table>
+    
 </div>
 @endsection

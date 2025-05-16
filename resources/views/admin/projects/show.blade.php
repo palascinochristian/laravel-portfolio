@@ -17,6 +17,13 @@
             <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">
                 ← Torna all'elenco progetti
             </a>
+            <a href="{{ route('admin.projects.edit',$project) }}" class="btn btn-warning">
+                Modifica
+            </a>
+            <a href="{{ route('admin.projects.destroy',$project) }}" class="btn btn-danger">
+                Elimina
+            </a>
+            
         </div>
     </div>
 </div>
