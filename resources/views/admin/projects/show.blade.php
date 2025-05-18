@@ -8,8 +8,14 @@
         </div>
         <div class="card-body">
             <p><strong>Cliente:</strong> {{ $project->client ?? 'Non specificato' }}</p>
-            <p><strong>Periodo:</strong> {{ $project->period ?? 'Non specificato' }}</p>
-            <p><strong>Type:</strong> {{ $project->type->name ?? 'Non specificato' }}</p>
+            <p><strong>Data:</strong> {{ $project->period ?? 'Non specificato' }}</p>
+            <p><strong>Tipologia:</strong> {{ $project->type->name ?? 'Non specificato' }}</p>
+            <p><strong>Tecnologie utilizzate:</strong>
+            @forelse($project->technologies as $technology)
+            <span class="badge" style="background-color: {{$technology->color}}"> {{$technology->name}}</span>
+            @empty Nessuna
+            @endforelse
+          </p>
             <hr>
             <h5>Dettagli</h5>
             <p>{{ $project->details ?? 'Nessun dettaglio disponibile.' }}</p>

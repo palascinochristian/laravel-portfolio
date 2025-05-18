@@ -15,13 +15,23 @@
             <input type="text" class="form-control" name="name" id="name" value="{{ $project->name }}" required>
         </div>
          <div class="mb-3">
-            <label for="type" class="form-label">Tipologia</label>
+            <label for="type" class="form-label">Tipologia</label><br>
             <select name="type_id" id="type_id">
                 
                 @foreach ($types as $type)
                 <option value="{{$type->id}}"{{$project->type_id == $type->id? 'selected': ''}}>{{$type->name}}</option>
                 @endforeach
             </select>
+        </div>
+
+         <div class="mb-3 d-flex">
+            @foreach($technologies as $technology)
+            <div class="me-2">
+            <input type="checkbox" name="technologies[]" value="{{$technology->id}}" id="technology-{{$technology->id}}" {{$project->technologies->contains($technology->id) ? 'checked' : ''}}>
+            <label for="technology-{{$technology->id}}">{{$technology->name}} </label>
+        </div>
+            @endforeach
+
         </div>
 
         <div class="mb-3">

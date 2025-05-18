@@ -4,12 +4,15 @@
 <div class="container py-4">
     
 
-    <div class="d-flex align-items-center justify-content">
+    <div class="d-flex align-items-center justify-content gap-2">
       <h1 class="mb-4 flex-grow-1">Elenco Progetti</h1>
       <a href="{{ route('admin.types.index') }}" class="btn btn-sm btn-primary ">
                          Tipologie
                     </a>
-    <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-success m-2">
+                    <a href="{{ route('admin.technologies.index') }}" class="btn btn-sm btn-info text-light">
+                         Tecnologie
+                    </a>
+    <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-success">
                          Crea Progetto <i class="bi bi-plus-lg"></i>
                     </a>
     </div>
@@ -18,7 +21,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Cliente</th>
-                <th>Periodo</th>
+                <th>Data</th>
                 <th></th>
             </tr>
         </thead>
